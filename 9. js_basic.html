@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js basic</title>
+</head>
+<body>
+    <h2>js 객체</h2>
+    <button onclick="showObject()">객체 생성</button>
+    <button onclick="convertType()">타입 변환</button>
+    <button onclick="showNaN()">NaN 에러 발생</button>
+    <button onclick="showNull()">undefined, null</button>
+    <button onclick="showDateConversion()">date 변환</button>
+    <p id="result">변환 결과</p>
+</body>
+<script>
+    function showObject(){
+        // 리터럴 방식
+        let person = {name: "bellwin", age: 20, email: "bellwin@gmail.com"};
+        person.name = "han"; // 변경
+        person.password = "1234"; // 추가
+        let str = "이름: " + person.name + " 나이: " + person.age + " 이메일 주소: " + person.email + " 비밀번호: " + person.password;
+        document.getElementById("result").innerHTML = str;
+        console.log(person);
+    }
+    function convertType(){
+        // 숫자 클래스: Number, 문자 클래스: String, 참/거짓: Boolean
+        let numStr = "10";
+        let str = "문자열";
+        let output = "Number 변환: " + Number(numStr) + "<br>"
+                    + "String 변환: " + String(10) + "<br>"
+                    + "Boolean 변환: " + Boolean(0) + "<br>";
+        document.getElementById("result").innerHTML = output;
+    }
+    function showNaN(){
+        let output = "10" - "문자열";
+        console.log(output);
+        console.log(typeof output);
+        document.getElementById("result").innerHTML = output;
+    }
+    function showNull(){
+        let output1; // undefined
+        let output2 = null;
+        let output = "output1의 타입: " + (typeof output1) + "<br>"
+                    + "output2의 타입: " + (typeof output2) + "<br>"
+                    + "output1 == output2 " + (output1 == output2) + "<br>" // 값 비교
+                    + "output1 === output2 " + (output1 === output2) + "<br>"; // 타입까지 같은지 비교
+
+        document.getElementById("result").innerHTML = output;
+    }
+    function showDateConversion(){
+        var date = new Date();
+        var date_num = date.getDate();
+        var date_str = date.toString();
+        document.getElementById("result").innerHTML = date_num;
+        console.log(date);
+    }
+</script>
+</html>
